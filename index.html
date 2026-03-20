@@ -12,46 +12,47 @@
   --sans:  'Instrument Sans', system-ui, sans-serif;
   --mono:  'DM Mono', monospace;
 
-  --bg:        #0a0c0f;
-  --surface:   #111418;
-  --elevated:  #181c22;
-  --overlay:   #1e2430;
-  --glass:     rgba(255,255,255,0.04);
-  --glass-h:   rgba(255,255,255,0.07);
+  /* DARK — สว่างขึ้น อ่านง่าย */
+  --bg:        #15181e;
+  --surface:   #1e2229;
+  --elevated:  #262c36;
+  --overlay:   #2d3545;
+  --glass:     rgba(255,255,255,0.06);
+  --glass-h:   rgba(255,255,255,0.10);
 
-  --tx:        #f0ede6;
-  --tx2:       #8a8d94;
-  --tx3:       #4a4e57;
-  --accent:    #c8b89a;
-  --accent-d:  rgba(200,184,154,0.08);
-  --accent-b:  rgba(200,184,154,0.3);
+  --tx:        #eeeae2;
+  --tx2:       #b0b4be;
+  --tx3:       #6e7380;
+  --accent:    #d4c49e;
+  --accent-d:  rgba(212,196,158,0.12);
+  --accent-b:  rgba(212,196,158,0.35);
 
-  --green:     #4d9e6f;  --green-d:  rgba(77,158,111,0.12);
-  --amber:     #d4923a;  --amber-d:  rgba(212,146,58,0.12);
-  --red:       #e05c5c;  --red-d:    rgba(224,92,92,0.12);
-  --pink:      #c85b8f;  --pink-d:   rgba(200,91,143,0.12);
-  --blue:      #5b8fc8;  --blue-d:   rgba(91,143,200,0.12);
-  --teal:      #3d9e8c;  --teal-d:   rgba(61,158,140,0.12);
+  --green:     #5cb882;  --green-d:  rgba(92,184,130,0.15);
+  --amber:     #e8a84a;  --amber-d:  rgba(232,168,74,0.15);
+  --red:       #f07070;  --red-d:    rgba(240,112,112,0.15);
+  --pink:      #e070a8;  --pink-d:   rgba(224,112,168,0.15);
+  --blue:      #70a8e8;  --blue-d:   rgba(112,168,232,0.15);
+  --teal:      #50b8a8;  --teal-d:   rgba(80,184,168,0.15);
 
-  --bdr:       rgba(255,255,255,0.07);
-  --bdr-h:     rgba(255,255,255,0.14);
-  --bdr-a:     rgba(200,184,154,0.3);
+  --bdr:       rgba(255,255,255,0.10);
+  --bdr-h:     rgba(255,255,255,0.20);
+  --bdr-a:     rgba(212,196,158,0.40);
 
-  --r:  8px; --rl: 14px; --rxl: 22px;
+  --r:  10px; --rl: 16px; --rxl: 24px;
 }
 
 [data-theme="light"] {
-  --bg:       #f4f1eb; --surface:  #faf8f4; --elevated: #ffffff;
-  --overlay:  #f0ede5; --glass:    rgba(0,0,0,0.03); --glass-h: rgba(0,0,0,0.06);
-  --tx:       #1a1714; --tx2:      #6b6760; --tx3:      #a8a49e;
-  --accent:   #8a6535; --accent-d: rgba(138,101,53,0.06); --accent-b: rgba(138,101,53,0.25);
-  --green:    #2d7a52; --green-d:  rgba(45,122,82,0.08);
-  --amber:    #b5620d; --amber-d:  rgba(181,98,13,0.08);
-  --red:      #c0392b; --red-d:    rgba(192,57,43,0.08);
-  --pink:     #a8336e; --pink-d:   rgba(168,51,110,0.08);
-  --blue:     #2563a8; --blue-d:   rgba(37,99,168,0.08);
-  --teal:     #1e7a6e; --teal-d:   rgba(30,122,110,0.08);
-  --bdr:      rgba(0,0,0,0.08); --bdr-h: rgba(0,0,0,0.16); --bdr-a: rgba(138,101,53,0.25);
+  --bg:       #f0ede6; --surface:  #ffffff; --elevated: #ffffff;
+  --overlay:  #e8e4da; --glass:    rgba(0,0,0,0.04); --glass-h: rgba(0,0,0,0.08);
+  --tx:       #1a1714; --tx2:      #4a4744; --tx3:      #8a8784;
+  --accent:   #7a5828; --accent-d: rgba(122,88,40,0.08); --accent-b: rgba(122,88,40,0.30);
+  --green:    #1e7a4a; --green-d:  rgba(30,122,74,0.10);
+  --amber:    #a05810; --amber-d:  rgba(160,88,16,0.10);
+  --red:      #b82828; --red-d:    rgba(184,40,40,0.10);
+  --pink:     #983060; --pink-d:   rgba(152,48,96,0.10);
+  --blue:     #1a58a8; --blue-d:   rgba(26,88,168,0.10);
+  --teal:     #1a7868; --teal-d:   rgba(26,120,104,0.10);
+  --bdr:      rgba(0,0,0,0.10); --bdr-h: rgba(0,0,0,0.20); --bdr-a: rgba(122,88,40,0.30);
 }
 
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
@@ -108,7 +109,7 @@ body {
 .tab {
   flex:1; padding:9px 8px; border:none; border-radius:10px;
   background:transparent; color:var(--tx3);
-  font-size:13px; font-family:var(--sans); font-weight:500;
+  font-size:15px; font-family:var(--sans); font-weight:500;
   cursor:pointer; transition:.2s; white-space:nowrap;
 }
 .tab:hover:not(.active) { color:var(--tx2); background:var(--glass); }
@@ -116,22 +117,38 @@ body {
 
 /* ── SECTION LABEL ── */
 .slbl {
-  font-size:10px; font-family:var(--mono); letter-spacing:.15em;
-  text-transform:uppercase; color:var(--tx3); margin-bottom:12px;
-  display:flex; align-items:center; gap:8px;
+  font-size:12px; font-family:var(--mono); letter-spacing:.12em;
+  text-transform:uppercase; color:var(--tx2); margin-bottom:14px;
+  display:flex; align-items:center; gap:8px; font-weight:500;
 }
 .slbl::after { content:''; flex:1; height:1px; background:var(--bdr); }
 
-.sec { margin-bottom:2rem; }
+.sec { margin-bottom:2.25rem; }
 .g2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
-@media(max-width:580px) { .g2,.g3 { grid-template-columns:1fr; } .ais-g { grid-template-columns:1fr 1fr!important; } .scr-row { grid-template-columns:1fr 1fr!important; } }
+@media(max-width:640px) {
+  .g2,.g3 { grid-template-columns:1fr; }
+  .ais-g { grid-template-columns:1fr 1fr!important; }
+  .scr-row { grid-template-columns:1fr 1fr!important; }
+  .shell { padding:0 1rem 3rem; }
+  .hdr { padding:1.5rem 0 1.25rem; }
+  .hdr h1, .hdr-title { font-size:22px!important; }
+  .tabs { gap:1px; }
+  .tab { font-size:12px; padding:10px 6px; }
+  .fld input,.fld select { font-size:16px; padding:13px 12px; }
+  .scr-num { font-size:2rem!important; }
+  .btn { padding:14px 16px; font-size:14px; }
+  .btn-row { gap:8px; }
+  .ais-card { padding:14px; }
+  .scr-panel { padding:1.25rem; border-radius:var(--rl); }
+  .scr-item { padding:1rem .5rem; }
+}
 
 .fld { display:flex; flex-direction:column; gap:5px; }
-.fld label { font-size:11px; font-family:var(--mono); letter-spacing:.08em; color:var(--tx3); text-transform:uppercase; }
+.fld label { font-size:12px; font-family:var(--mono); letter-spacing:.06em; color:var(--tx2); text-transform:uppercase; font-weight:500; }
 .fld input,.fld select {
   background:var(--glass); border:1px solid var(--bdr); border-radius:var(--r);
-  padding:9px 12px; font-size:14px; font-family:var(--sans); color:var(--tx);
+  padding:12px 14px; font-size:16px; font-family:var(--sans); color:var(--tx);
   width:100%; transition:.2s; appearance:none; -webkit-appearance:none;
 }
 .fld select {
@@ -156,18 +173,18 @@ body {
 .ais-g { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 .ais-card {
   background:var(--surface); border:1px solid var(--bdr); border-radius:var(--r);
-  padding:12px; transition:.2s;
+  padding:16px; transition:.2s;
 }
 .ais-card:hover { border-color:var(--bdr-h); transform:translateY(-1px); }
 .ais-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
-.ais-name { font-size:11px; font-family:var(--mono); color:var(--tx3); letter-spacing:.05em; }
-.ais-val { font-family:var(--mono); font-size:20px; font-weight:500; color:var(--tx3); transition:color .3s; }
+.ais-name { font-size:12px; font-family:var(--mono); color:var(--tx2); letter-spacing:.04em; font-weight:500; }
+.ais-val { font-family:var(--mono); font-size:22px; font-weight:600; color:var(--tx3); transition:color .3s; }
 .ais-val.v1,.ais-val.v2 { color:var(--green); }
 .ais-val.v3 { color:var(--amber); }
 .ais-val.v4,.ais-val.v5,.ais-val.v6 { color:var(--red); }
 .ais-card select {
   width:100%; background:var(--glass); border:1px solid var(--bdr); border-radius:6px;
-  padding:6px 26px 6px 8px; font-size:12px; font-family:var(--mono); color:var(--tx2);
+  padding:10px 28px 10px 10px; font-size:14px; font-family:var(--sans); color:var(--tx);
   appearance:none; -webkit-appearance:none; transition:.2s;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%238a8d94' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
   background-repeat:no-repeat; background-position:right 7px center;
@@ -192,15 +209,15 @@ body {
   transition:.2s; cursor:default;
 }
 .scr-item:hover { transform:translateY(-2px); border-color:var(--bdr-h); }
-.scr-lbl { font-size:10px; font-family:var(--mono); letter-spacing:.1em; color:var(--tx3); margin-bottom:8px; }
-.scr-num { font-family:var(--serif); font-size:2.1rem; line-height:1; transition:color .3s; }
-.scr-rng { font-size:10px; color:var(--tx3); font-family:var(--mono); margin-top:4px; }
+.scr-lbl { font-size:12px; font-family:var(--mono); letter-spacing:.08em; color:var(--tx2); margin-bottom:10px; font-weight:500; }
+.scr-num { font-family:var(--serif); font-size:2.6rem; line-height:1; transition:color .3s; }
+.scr-rng { font-size:11px; color:var(--tx3); font-family:var(--mono); margin-top:5px; }
 
 .iss-wrap { margin-bottom:1.25rem; }
 .iss-lbls { display:flex; justify-content:space-between; margin-bottom:5px; }
-.iss-lbl { font-size:10px; font-family:var(--mono); }
-.iss-bar { height:5px; background:var(--overlay); border-radius:3px; overflow:hidden; }
-.iss-fill { height:100%; border-radius:3px; transition:width .6s cubic-bezier(.34,1.56,.64,1), background .4s; position:relative; }
+.iss-lbl { font-size:12px; font-family:var(--mono); font-weight:500; }
+.iss-bar { height:8px; background:var(--overlay); border-radius:4px; overflow:hidden; }
+.iss-fill { height:100%; border-radius:4px; transition:width .6s cubic-bezier(.34,1.56,.64,1), background .4s; position:relative; }
 .iss-fill::after {
   content:''; position:absolute; right:-1px; top:50%; transform:translateY(-50%);
   width:9px; height:9px; border-radius:50%; background:inherit; box-shadow:0 0 6px currentColor;
@@ -211,8 +228,8 @@ body {
   padding:13px 16px; border-radius:var(--r); border:1px solid; transition:.4s;
 }
 .v-dot { width:34px; height:34px; min-width:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:15px; }
-.v-title { font-size:15px; font-weight:600; font-family:var(--serif); font-style:italic; }
-.v-sub { font-size:12px; font-family:var(--mono); margin-top:3px; opacity:.8; }
+.v-title { font-size:17px; font-weight:600; font-family:var(--serif); font-style:italic; }
+.v-sub { font-size:13px; font-family:var(--mono); margin-top:4px; opacity:.9; }
 
 .v-minor   { background:var(--green-d); border-color:rgba(77,158,111,.3); }
 .v-minor .v-dot,.v-minor .v-title,.v-minor .v-sub { color:var(--green); }
@@ -231,8 +248,8 @@ body {
 .btn-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:1.5rem; }
 .btn {
   display:inline-flex; align-items:center; gap:7px;
-  padding:10px 18px; border-radius:var(--r);
-  font-size:13px; font-family:var(--sans); font-weight:500;
+  padding:13px 22px; border-radius:var(--r);
+  font-size:15px; font-family:var(--sans); font-weight:500;
   cursor:pointer; border:1px solid; transition:.18s; letter-spacing:.01em;
 }
 .btn:active { transform:scale(.98); }
@@ -246,7 +263,7 @@ body {
 .btn-s:disabled { opacity:.35; cursor:not-allowed; }
 
 /* ── CARD ── */
-.card { background:var(--surface); border:1px solid var(--bdr); border-radius:var(--rl); padding:1.5rem; margin-bottom:1.25rem; }
+.card { background:var(--surface); border:1px solid var(--bdr); border-radius:var(--rl); padding:1.75rem; margin-bottom:1.5rem; }
 .card-title { font-family:var(--serif); font-style:italic; font-size:18px; margin-bottom:1rem; }
 
 /* ── STATUS BAR ── */
@@ -266,7 +283,7 @@ body {
 
 /* ── STEPS ── */
 .steps { display:flex; flex-direction:column; gap:12px; }
-.step { display:flex; gap:12px; align-items:flex-start; font-size:13px; color:var(--tx2); line-height:1.65; }
+.step { display:flex; gap:14px; align-items:flex-start; font-size:15px; color:var(--tx2); line-height:1.7; }
 .sn { min-width:24px; height:24px; border:1px solid var(--bdr-a); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:11px; color:var(--accent); flex-shrink:0; margin-top:1px; }
 
 /* ── CODE ── */
@@ -280,9 +297,9 @@ pre {
 
 /* ── TABLE ── */
 .tw { overflow-x:auto; }
-table { width:100%; border-collapse:collapse; font-size:13px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
 th { padding:9px 13px; text-align:left; font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--tx3); border-bottom:1px solid var(--bdr); font-weight:400; }
-td { padding:10px 13px; border-bottom:1px solid var(--bdr); color:var(--tx2); vertical-align:middle; }
+td { padding:12px 14px; border-bottom:1px solid var(--bdr); color:var(--tx2); vertical-align:middle; }
 tr:last-child td { border-bottom:none; }
 tr:hover td { background:var(--glass); color:var(--tx); }
 .pill { display:inline-flex; align-items:center; padding:3px 10px; border-radius:99px; font-size:11px; font-family:var(--mono); border:1px solid; }
@@ -294,8 +311,8 @@ tr:hover td { background:var(--glass); color:var(--tx); }
 /* ── GUIDE ── */
 .gc { background:var(--surface); border:1px solid var(--bdr); border-radius:var(--rl); padding:1.5rem; margin-bottom:1rem; }
 .gt { font-family:var(--serif); font-style:italic; font-size:20px; margin-bottom:10px; }
-.gb { font-size:13px; color:var(--tx2); line-height:1.75; }
-.fm { margin-top:12px; font-family:var(--mono); font-size:13px; padding:10px 16px; border-radius:var(--r); border:1px solid; }
+.gb { font-size:15px; color:var(--tx2); line-height:1.8; }
+.fm { margin-top:14px; font-family:var(--mono); font-size:14px; padding:10px 16px; border-radius:var(--r); border:1px solid; }
 .fg { background:var(--green-d); border-color:rgba(77,158,111,.3); color:var(--green); }
 .ft { background:var(--teal-d);  border-color:rgba(61,158,140,.3);  color:var(--teal); }
 .fa { background:var(--amber-d); border-color:rgba(212,146,58,.3);  color:var(--amber); }
@@ -338,7 +355,6 @@ tr:hover td { background:var(--glass); color:var(--tx); }
 <!-- TABS -->
 <div class="tabs">
   <button class="tab active" onclick="sw('score',this)">คำนวณ</button>
-  <button class="tab" onclick="sw('sheets',this)">Google Sheets</button>
   <button class="tab" onclick="sw('history',this)">ประวัติ</button>
   <button class="tab" onclick="sw('guide',this)">คู่มือ</button>
 </div>
@@ -442,102 +458,11 @@ tr:hover td { background:var(--glass); color:var(--tx); }
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17,21 17,13 7,13 7,21"/><polyline points="7,3 7,8 15,8"/></svg>
       บันทึกผู้ป่วย
     </button>
-    <button class="btn btn-s" id="btn-sh" onclick="sendSheets()" disabled>
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-      ส่งไปยัง Sheets
-    </button>
     <button class="btn btn-g" onclick="window.print()">พิมพ์</button>
     <button class="btn btn-g" onclick="clearF()">ล้างข้อมูล</button>
   </div>
 </div>
 
-<!-- ══ TAB SHEETS ══ -->
-<div id="tab-sheets" class="tab-pane hidden">
-  <div class="ibox">ใช้ Google Apps Script Web App รับข้อมูลผ่าน URL parameter · ไม่มี CORS · ไม่ต้องมี server · Deploy ครั้งเดียว</div>
-  <div class="card">
-    <div class="sbar disc" id="sbar"><div class="pulse a"></div><span id="sbar-txt">ยังไม่ได้เชื่อมต่อ</span></div>
-    <div class="g2" style="margin-bottom:1rem;">
-      <div class="fld"><label>Apps Script Web App URL</label><input type="text" id="gs-url" placeholder="https://script.google.com/macros/s/.../exec"/></div>
-      <div class="fld"><label>Sheet Tab Name</label><input type="text" id="gs-sheet" value="TraumaData"/></div>
-    </div>
-    <div class="btn-row" style="margin-top:0;">
-      <button class="btn btn-p" onclick="testConn()">ทดสอบการเชื่อมต่อ</button>
-      <button class="btn btn-g" onclick="document.getElementById('tpl').classList.toggle('hidden')">ดู Apps Script Code</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">วิธีตั้งค่า (ทำครั้งเดียว)</div>
-    <div class="steps">
-      <div class="step"><div class="sn">1</div><span>เปิด Google Sheets → <b>Extensions → Apps Script</b></span></div>
-      <div class="step"><div class="sn">2</div><span>ลบโค้ดเดิมทั้งหมด → วาง Code.gs จาก template → กด <b>Save (Ctrl+S)</b></span></div>
-      <div class="step"><div class="sn">3</div><span>คลิก <b>Deploy → New deployment → ⚙ → Web app</b></span></div>
-      <div class="step"><div class="sn">4</div><span>Execute as: <b>Me</b> · Who has access: <b>Anyone</b> → Deploy → <b>Authorize access → Allow</b></span></div>
-      <div class="step"><div class="sn">5</div><span>Copy <b>Web App URL</b> มาวางในช่องด้านบน → กด "ทดสอบการเชื่อมต่อ"</span></div>
-    </div>
-  </div>
-
-  <div id="tpl" class="hidden">
-    <div class="slbl">Code.gs — วางใน Apps Script</div>
-<pre><span class="cm">// Trauma Scoring — Apps Script (doGet + JSONP)
-// Deploy: Web App · Execute as: Me · Who has access: Anyone</span>
-
-<span class="kw">function</span> <span class="fn">doGet</span>(e) {
-  <span class="kw">var</span> p        = e.parameter;
-  <span class="kw">var</span> callback = p.callback || <span class="str">"callback"</span>;
-  <span class="kw">var</span> action   = p.action   || <span class="str">"ping"</span>;
-  <span class="kw">var</span> result;
-
-  <span class="kw">try</span> {
-    <span class="kw">if</span> (action === <span class="str">"ping"</span>) {
-      result = { status: <span class="str">"ok"</span>, msg: <span class="str">"Trauma API ready"</span> };
-
-    } <span class="kw">else if</span> (action === <span class="str">"save"</span>) {
-      <span class="kw">var</span> ss    = SpreadsheetApp.getActiveSpreadsheet();
-      <span class="kw">var</span> name  = p.sheet || <span class="str">"TraumaData"</span>;
-      <span class="kw">var</span> sheet = ss.getSheetByName(name);
-
-      <span class="kw">if</span> (!sheet) {
-        sheet = ss.insertSheet(name);
-        sheet.appendRow([
-          <span class="str">"Timestamp"</span>,<span class="str">"HN"</span>,<span class="str">"Age"</span>,<span class="str">"Injury"</span>,
-          <span class="str">"GCS"</span>,<span class="str">"SBP"</span>,<span class="str">"RR"</span>,<span class="str">"RTS"</span>,
-          <span class="str">"AIS_Head"</span>,<span class="str">"AIS_Face"</span>,<span class="str">"AIS_Thorax"</span>,
-          <span class="str">"AIS_Abd"</span>,<span class="str">"AIS_Ext"</span>,<span class="str">"AIS_Ext2"</span>,
-          <span class="str">"ISS"</span>,<span class="str">"Ps_TRISS"</span>,<span class="str">"Severity"</span>
-        ]);
-        sheet.getRange(<span class="nm">1</span>,<span class="nm">1</span>,<span class="nm">1</span>,<span class="nm">17</span>)
-          .setFontWeight(<span class="str">"bold"</span>)
-          .setBackground(<span class="str">"#1a3a5c"</span>)
-          .setFontColor(<span class="str">"#ffffff"</span>);
-        sheet.setFrozenRows(<span class="nm">1</span>);
-      }
-
-      sheet.appendRow([
-        <span class="kw">new</span> Date(),
-        p.hn, p.age, p.injuryType,
-        p.gcs, p.sbp, p.rr, p.rts,
-        p.aisHead, p.aisFace, p.aisThorax,
-        p.aisAbd, p.aisExt, p.aisExt2,
-        p.iss, p.ps, p.severity
-      ]);
-
-      result = { status: <span class="str">"ok"</span>, rows: sheet.getLastRow() };
-
-    } <span class="kw">else</span> {
-      result = { status: <span class="str">"error"</span>, msg: <span class="str">"unknown action"</span> };
-    }
-  } <span class="kw">catch</span>(err) {
-    result = { status: <span class="str">"error"</span>, msg: err.toString() };
-  }
-
-  <span class="kw">var</span> out = callback + <span class="str">"("</span> + JSON.stringify(result) + <span class="str">")"</span>;
-  <span class="kw">return</span> ContentService
-    .createTextOutput(out)
-    .setMimeType(ContentService.MimeType.JAVASCRIPT);
-}</pre>
-  </div>
-</div>
 
 <!-- ══ TAB HISTORY ══ -->
 <div id="tab-history" class="tab-pane hidden">
@@ -607,7 +532,6 @@ tr:hover td { background:var(--glass); color:var(--tx); }
 /* ── STATE ── */
 var recs = [];
 var gsUrl = '';
-var connected = false;
 
 /* ── THEME ── */
 function toggleTheme() {
@@ -723,89 +647,6 @@ function clearF() {
   document.getElementById('inj').value='blunt';
   [0,1,2,3,4,5].forEach(function(i){ document.getElementById('a'+i).value='0'; });
   calc();
-}
-
-/* ── GOOGLE SHEETS ──
-   ส่งข้อมูลผ่าน URL parameter (GET) + รับผลผ่าน JSONP
-   วิธีนี้ผ่าน CORS ได้ 100% เพราะใช้ <script> tag โหลด
-   Apps Script ต้องตอบกลับเป็น callback({...})
-────────────────────────────────────────────── */
-function gsGet(params, onOk, onErr) {
-  var url   = document.getElementById('gs-url').value.trim();
-  var sheet = document.getElementById('gs-sheet').value.trim() || 'TraumaData';
-  if (!url) { alert('กรุณากรอก Apps Script URL ก่อน'); return; }
-
-  // เพิ่ม sheet และ callback=callback (ตายตัว ตรงกับ Apps Script)
-  params.sheet    = sheet;
-  params.callback = 'callback';
-  params._t       = Date.now(); // cache-bust
-
-  var qs  = Object.keys(params).map(function(k){ return encodeURIComponent(k)+'='+encodeURIComponent(params[k]); }).join('&');
-  var src = url + (url.indexOf('?')>=0?'&':'?') + qs;
-
-  var tag  = document.createElement('script');
-  var done = false;
-  var timer = setTimeout(function(){
-    if(done) return; done=true;
-    if(tag.parentNode) tag.parentNode.removeChild(tag);
-    onErr && onErr('Timeout 10 วินาที — ตรวจสอบ URL หรือ network');
-  }, 10000);
-
-  window.callback = function(data){
-    if(done) return; done=true;
-    clearTimeout(timer);
-    if(tag.parentNode) tag.parentNode.removeChild(tag);
-    onOk && onOk(data);
-  };
-
-  tag.onerror = function(){
-    if(done) return; done=true;
-    clearTimeout(timer);
-    if(tag.parentNode) tag.parentNode.removeChild(tag);
-    onErr && onErr('Script load error — URL อาจผิด หรือยังไม่ได้ Deploy');
-  };
-
-  tag.src = src;
-  document.head.appendChild(tag);
-}
-
-function testConn() {
-  gsGet({ action:'ping' },
-    function(d){
-      if (d && d.status === 'ok') {
-        connected = true;
-        var sb = document.getElementById('sbar');
-        sb.className = 'sbar conn';
-        sb.innerHTML = '<div class="pulse g"></div><span>เชื่อมต่อสำเร็จ · พร้อมใช้งาน ✓</span>';
-        document.getElementById('btn-sh').disabled = false;
-        alert('✅ เชื่อมต่อ Google Sheets สำเร็จ!');
-      } else {
-        alert('❌ ได้รับ response แต่ status ไม่ใช่ ok\n'+JSON.stringify(d));
-      }
-    },
-    function(err){ alert('❌ ' + err); }
-  );
-}
-
-function sendSheets() {
-  var s  = window._s||{};
-  var av = s.av||[0,0,0,0,0,0];
-  gsGet({
-    action:'save',
-    hn:         document.getElementById('hn').value||'Unknown',
-    age:        document.getElementById('age').value||'',
-    injuryType: document.getElementById('inj').value,
-    gcs:s.gcs||'', sbp:s.sbp||'', rr:s.rr||'', rts:s.rts||'',
-    aisHead:av[0], aisFace:av[1], aisThorax:av[2],
-    aisAbd:av[3],  aisExt:av[4],  aisExt2:av[5],
-    iss:s.iss||'', ps:s.ps||'', severity:sev(s.iss||0)
-  },
-    function(d){
-      if (d && d.status === 'ok') alert('✅ บันทึกลง Google Sheets สำเร็จ!\nแถวที่: ' + d.rows);
-      else alert('❌ Error: '+JSON.stringify(d));
-    },
-    function(err){ alert('❌ ส่งไม่สำเร็จ\n'+err); }
-  );
 }
 
 calc();
