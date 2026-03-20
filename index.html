@@ -401,6 +401,20 @@ input::placeholder { color: var(--tx3); opacity: 1; }
         </select>
       </div>
     </div>
+    <div class="g2" style="margin-top:12px;">
+      <div class="fld">
+        <label>Outcome (ผลลัพธ์)</label>
+        <select id="outcome" onchange="checkRCA()">
+          <option value="">— ยังไม่ระบุ —</option>
+          <option value="survived">รอดชีวิต (Survived)</option>
+          <option value="died">เสียชีวิต (Died)</option>
+        </select>
+      </div>
+      <div class="fld">
+        <label>วันที่รับไว้รักษา</label>
+        <input type="date" id="admit-date"/>
+      </div>
+    </div>
   </div>
 
   <div class="sec">
@@ -463,7 +477,7 @@ input::placeholder { color: var(--tx3); opacity: 1; }
       <div class="scr-item"><div class="scr-lbl">GCS</div><div class="scr-num" id="d-gcs" style="color:var(--blue)">15</div><div class="scr-rng">3 – 15</div></div>
       <div class="scr-item"><div class="scr-lbl">RTS</div><div class="scr-num" id="d-rts" style="color:var(--teal)">7.84</div><div class="scr-rng">0 – 7.84</div></div>
       <div class="scr-item"><div class="scr-lbl">ISS</div><div class="scr-num" id="d-iss" style="color:var(--amber)">0</div><div class="scr-rng">0 – 75</div></div>
-      <div class="scr-item"><div class="scr-lbl">Ps (TRISS)</div><div class="scr-num" id="d-ps" style="color:var(--green)">—</div><div class="scr-rng">survival %</div></div>
+      <div class="scr-item" id="ps-item"><div class="scr-lbl">Ps (TRISS)</div><div class="scr-num" id="d-ps" style="color:var(--green)">—</div><div class="scr-rng" id="d-ps-raw">กรอก Vital Signs</div></div>
     </div>
     <div class="iss-wrap">
       <div class="iss-lbls">
@@ -477,6 +491,37 @@ input::placeholder { color: var(--tx3); opacity: 1; }
     <div class="verdict v-minor" id="vrd">
       <div class="v-dot" id="vdot">✓</div>
       <div><div class="v-title" id="vtit">Minor Trauma</div><div class="v-sub" id="vsub">ISS 0–8 · ความเสี่ยงต่ำ · พิจารณา discharge</div></div>
+    </div>
+
+    <!-- Ps INTERPRETATION BOX -->
+    <div id="ps-box" style="margin-top:1rem; padding:14px 18px; border-radius:var(--r); border:1px solid; display:none; transition:all .4s;">
+      <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:180px;">
+          <div style="font-size:11px; font-family:var(--mono); letter-spacing:.08em; opacity:.7; margin-bottom:4px;">PS — PROBABILITY OF SURVIVAL</div>
+          <div style="display:flex; align-items:baseline; gap:8px;">
+            <span id="ps-pct" style="font-family:var(--serif); font-size:2rem; font-weight:600;">—</span>
+            <span style="font-size:13px; font-family:var(--mono); opacity:.7;">โอกาสรอดชีวิต</span>
+          </div>
+        </div>
+        <div style="text-align:right; flex-shrink:0;">
+          <div id="ps-badge" style="font-size:12px; font-family:var(--mono); padding:5px 14px; border-radius:99px; border:1px solid; font-weight:500; margin-bottom:4px;">—</div>
+          <div id="ps-moph" style="font-size:11px; font-family:var(--mono); opacity:.75;"></div>
+        </div>
+      </div>
+      <!-- Ps progress bar -->
+      <div style="margin-top:12px;">
+        <div style="height:6px; background:var(--overlay); border-radius:3px; overflow:hidden; position:relative;">
+          <div id="ps-bar" style="height:100%; border-radius:3px; transition:width .7s cubic-bezier(.34,1.56,.64,1), background .4s; width:0%;"></div>
+          <!-- threshold line at 75% -->
+          <div style="position:absolute; left:75%; top:-2px; width:2px; height:10px; background:var(--amber); border-radius:1px;" title="เกณฑ์ สธ. 75%"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-top:4px;">
+          <span style="font-size:10px; font-family:var(--mono); color:var(--tx3);">0%</span>
+          <span style="font-size:10px; font-family:var(--mono); color:var(--amber);">▲ 75% เกณฑ์ สธ.</span>
+          <span style="font-size:10px; font-family:var(--mono); color:var(--tx3);">100%</span>
+        </div>
+      </div>
+      <div id="ps-rca" style="margin-top:10px; font-size:12px; font-family:var(--mono); padding:8px 12px; border-radius:6px; display:none;"></div>
     </div>
   </div>
 
@@ -584,6 +629,33 @@ function cG(v){ return v>=13?4:v>=9?3:v>=6?2:v>=4?1:0; }
 function cS(v){ return v>=90?4:v>=76?3:v>=50?2:v>=1?1:0; }
 function cR(v){ return (v>=10&&v<=29)?4:v>=30?3:v>=6?2:v>=1?1:0; }
 
+/* ── RCA CHECK (กระทรวงสาธารณสุข) ── */
+function checkRCA() {
+  var outcome = document.getElementById('outcome').value;
+  var ps      = window._psNum || 0;
+  var rca     = document.getElementById('ps-rca');
+  var box     = document.getElementById('ps-box');
+  if (!rca || box.style.display === 'none') return;
+
+  if (outcome === 'died' && ps > 0.75) {
+    // Unexpected death — ต้องทำ RCA
+    rca.style.display = 'block';
+    rca.style.background = 'rgba(240,120,120,0.15)';
+    rca.style.border = '1px solid rgba(240,120,120,0.4)';
+    rca.style.color = 'var(--red)';
+    rca.innerHTML = '⚠ <b>RCA Required</b> — ผู้ป่วยมี Ps = '+(ps*100).toFixed(1)+'% (> 75%) แต่เสียชีวิต<br>ต้องทำ Root Cause Analysis ตามเกณฑ์กระทรวงสาธารณสุข';
+  } else if (outcome === 'survived' && ps < 0.25) {
+    // Unexpected survival — good outcome
+    rca.style.display = 'block';
+    rca.style.background = 'rgba(78,201,138,0.12)';
+    rca.style.border = '1px solid rgba(78,201,138,0.3)';
+    rca.style.color = 'var(--green)';
+    rca.innerHTML = '✓ <b>Unexpected Survival</b> — Ps = '+(ps*100).toFixed(1)+'% แต่รอดชีวิต — บันทึกเป็นกรณีศึกษาคุณภาพ';
+  } else {
+    rca.style.display = 'none';
+  }
+}
+
 /* ── CALC ── */
 function calc() {
   var E = +document.getElementById('ge').value||1;
@@ -625,7 +697,69 @@ function calc() {
   var pss = (sbp===0||rr===0)?'—':(ps*100).toFixed(1)+'%';
   var pe  = document.getElementById('d-ps');
   pe.textContent = pss;
-  pe.style.color = ps>0.75?'var(--green)':ps>0.5?'var(--amber)':'var(--red)';
+
+  // Update Ps raw value display
+  var psRaw = document.getElementById('d-ps-raw');
+
+  if (sbp===0||rr===0) {
+    pe.style.color = 'var(--tx3)';
+    psRaw.textContent = 'กรอก Vital Signs';
+    document.getElementById('ps-box').style.display = 'none';
+  } else {
+    // Color by threshold
+    var psColor = ps>0.75?'var(--green)':ps>0.50?'var(--amber)':'var(--red)';
+    pe.style.color = psColor;
+    psRaw.textContent = ps.toFixed(4) + ' (raw)';
+
+    // Show Ps box
+    var box = document.getElementById('ps-box');
+    box.style.display = 'block';
+    box.style.background = ps>0.75?'var(--green-d)':ps>0.50?'var(--amber-d)':'var(--red-d)';
+    box.style.borderColor = ps>0.75?'rgba(78,201,138,.35)':ps>0.50?'rgba(240,184,74,.35)':'rgba(240,120,120,.35)';
+
+    // Ps percentage
+    var psPct = (ps*100).toFixed(1)+'%';
+    document.getElementById('ps-pct').textContent = psPct;
+    document.getElementById('ps-pct').style.color = psColor;
+
+    // Ps bar
+    document.getElementById('ps-bar').style.width = (ps*100).toFixed(1)+'%';
+    document.getElementById('ps-bar').style.background = psColor;
+
+    // Badge
+    var badge = document.getElementById('ps-badge');
+    var moph  = document.getElementById('ps-moph');
+    var rca   = document.getElementById('ps-rca');
+
+    if (ps > 0.75) {
+      badge.textContent = 'โอกาสรอดสูง';
+      badge.style.background = 'var(--green-d)';
+      badge.style.borderColor = 'rgba(78,201,138,.4)';
+      badge.style.color = 'var(--green)';
+      moph.textContent = 'Ps > 0.75 — ต่ำกว่าเกณฑ์เฝ้าระวัง สธ.';
+      rca.style.display = 'none';
+    } else if (ps > 0.50) {
+      badge.textContent = 'โอกาสรอดปานกลาง';
+      badge.style.background = 'var(--amber-d)';
+      badge.style.borderColor = 'rgba(240,184,74,.4)';
+      badge.style.color = 'var(--amber)';
+      moph.textContent = 'Ps 0.50–0.75 — ติดตามใกล้ชิด';
+      rca.style.display = 'none';
+    } else {
+      badge.textContent = 'โอกาสรอดต่ำ';
+      badge.style.background = 'var(--red-d)';
+      badge.style.borderColor = 'rgba(240,120,120,.4)';
+      badge.style.color = 'var(--red)';
+      moph.textContent = 'Ps ≤ 0.50 — ความเสี่ยงสูง';
+      rca.style.display = 'none';
+    }
+
+    // RCA Warning — กระทรวงสาธารณสุข
+    // แสดงเตือนเมื่อ Ps > 0.75 (จะใช้ตอน outcome = เสียชีวิต)
+    // เก็บค่าไว้ใน window สำหรับบันทึก
+    window._psNum = ps;
+  checkRCA();
+  }
 
   var vrd = document.getElementById('vrd');
   var vt  = document.getElementById('vtit');
