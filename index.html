@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="th" data-theme="dark">
+<html lang="th" data-theme="light">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="color-scheme" content="light dark"/>
 <title>Trauma Scoring System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,47 +13,47 @@
   --sans:  'Instrument Sans', system-ui, sans-serif;
   --mono:  'DM Mono', monospace;
 
-  /* DARK — สว่างขึ้น อ่านง่าย */
-  --bg:        #15181e;
-  --surface:   #1e2229;
-  --elevated:  #262c36;
-  --overlay:   #2d3545;
-  --glass:     rgba(255,255,255,0.06);
-  --glass-h:   rgba(255,255,255,0.10);
+  /* BLUE NAVY THEME — โทนน้ำเงินกรมท่า สว่าง อ่านง่าย */
+  --bg:        #0f1c2e;
+  --surface:   #162338;
+  --elevated:  #1e2f48;
+  --overlay:   #253a58;
+  --glass:     rgba(255,255,255,0.07);
+  --glass-h:   rgba(255,255,255,0.12);
 
-  --tx:        #eeeae2;
-  --tx2:       #b0b4be;
-  --tx3:       #6e7380;
-  --accent:    #d4c49e;
-  --accent-d:  rgba(212,196,158,0.12);
-  --accent-b:  rgba(212,196,158,0.35);
+  --tx:        #e8f0f8;
+  --tx2:       #a8bdd4;
+  --tx3:       #5a7a9a;
+  --accent:    #5ba3e8;
+  --accent-d:  rgba(91,163,232,0.15);
+  --accent-b:  rgba(91,163,232,0.45);
 
-  --green:     #5cb882;  --green-d:  rgba(92,184,130,0.15);
-  --amber:     #e8a84a;  --amber-d:  rgba(232,168,74,0.15);
-  --red:       #f07070;  --red-d:    rgba(240,112,112,0.15);
-  --pink:      #e070a8;  --pink-d:   rgba(224,112,168,0.15);
-  --blue:      #70a8e8;  --blue-d:   rgba(112,168,232,0.15);
-  --teal:      #50b8a8;  --teal-d:   rgba(80,184,168,0.15);
+  --green:     #4ec98a;  --green-d:  rgba(78,201,138,0.18);
+  --amber:     #f0b84a;  --amber-d:  rgba(240,184,74,0.18);
+  --red:       #f07878;  --red-d:    rgba(240,120,120,0.18);
+  --pink:      #e078b8;  --pink-d:   rgba(224,120,184,0.18);
+  --blue:      #5ba3e8;  --blue-d:   rgba(91,163,232,0.18);
+  --teal:      #40c8b8;  --teal-d:   rgba(64,200,184,0.18);
 
-  --bdr:       rgba(255,255,255,0.10);
-  --bdr-h:     rgba(255,255,255,0.20);
-  --bdr-a:     rgba(212,196,158,0.40);
+  --bdr:       rgba(91,163,232,0.15);
+  --bdr-h:     rgba(91,163,232,0.30);
+  --bdr-a:     rgba(91,163,232,0.50);
 
   --r:  10px; --rl: 16px; --rxl: 24px;
 }
 
 [data-theme="light"] {
-  --bg:       #f0ede6; --surface:  #ffffff; --elevated: #ffffff;
-  --overlay:  #e8e4da; --glass:    rgba(0,0,0,0.04); --glass-h: rgba(0,0,0,0.08);
-  --tx:       #1a1714; --tx2:      #4a4744; --tx3:      #8a8784;
-  --accent:   #7a5828; --accent-d: rgba(122,88,40,0.08); --accent-b: rgba(122,88,40,0.30);
-  --green:    #1e7a4a; --green-d:  rgba(30,122,74,0.10);
-  --amber:    #a05810; --amber-d:  rgba(160,88,16,0.10);
-  --red:      #b82828; --red-d:    rgba(184,40,40,0.10);
-  --pink:     #983060; --pink-d:   rgba(152,48,96,0.10);
-  --blue:     #1a58a8; --blue-d:   rgba(26,88,168,0.10);
-  --teal:     #1a7868; --teal-d:   rgba(26,120,104,0.10);
-  --bdr:      rgba(0,0,0,0.10); --bdr-h: rgba(0,0,0,0.20); --bdr-a: rgba(122,88,40,0.30);
+  --bg:       #e8f2fc; --surface:  #ffffff; --elevated: #ffffff;
+  --overlay:  #d8eaf8; --glass:    rgba(15,60,120,0.04); --glass-h: rgba(15,60,120,0.08);
+  --tx:       #0a1a2e; --tx2:      #2a4a6e; --tx3:      #6a90b0;
+  --accent:   #1a5cb8; --accent-d: rgba(26,92,184,0.08); --accent-b: rgba(26,92,184,0.30);
+  --green:    #0e8050; --green-d:  rgba(14,128,80,0.10);
+  --amber:    #a06010; --amber-d:  rgba(160,96,16,0.10);
+  --red:      #b82020; --red-d:    rgba(184,32,32,0.10);
+  --pink:     #982860; --pink-d:   rgba(152,40,96,0.10);
+  --blue:     #1a5cb8; --blue-d:   rgba(26,92,184,0.10);
+  --teal:     #0a7870; --teal-d:   rgba(10,120,112,0.10);
+  --bdr:      rgba(26,92,184,0.12); --bdr-h: rgba(26,92,184,0.25); --bdr-a: rgba(26,92,184,0.35);
 }
 
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
@@ -98,7 +99,7 @@ body {
   background:var(--accent); transition:transform .3s cubic-bezier(.34,1.56,.64,1);
   box-shadow:0 2px 6px rgba(0,0,0,.3);
 }
-[data-theme="light"] .th-btn::before { transform:translateX(23px); }
+[data-theme="dark"] .th-btn::before { transform:translateX(23px); }
 
 /* ── TABS ── */
 .tabs {
@@ -113,7 +114,7 @@ body {
   cursor:pointer; transition:.2s; white-space:nowrap;
 }
 .tab:hover:not(.active) { color:var(--tx2); background:var(--glass); }
-.tab.active { background:var(--elevated); color:var(--tx); border:1px solid var(--bdr-h); box-shadow:0 1px 4px rgba(0,0,0,.3); }
+.tab.active { background:var(--elevated); color:var(--accent); border:1px solid var(--bdr-a); box-shadow:0 1px 4px rgba(91,163,232,.2); }
 
 /* ── SECTION LABEL ── */
 .slbl {
@@ -152,8 +153,17 @@ body {
   width:100%; transition:.2s; appearance:none; -webkit-appearance:none;
 }
 .fld select {
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%238a8d94' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%235ba3e8' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
   background-repeat:no-repeat; background-position:right 11px center; padding-right:30px;
+}
+.fld select option, .ais-card select option {
+  background: #1e2f48;
+  color: #e8f0f8;
+}
+[data-theme="light"] .fld select option,
+[data-theme="light"] .ais-card select option {
+  background: #ffffff;
+  color: #0a1a2e;
 }
 .fld input:focus,.fld select:focus { outline:none; border-color:var(--bdr-a); background:var(--glass-h); box-shadow:0 0 0 3px var(--accent-d); }
 .fld input[readonly] { background:var(--accent-d); border-color:var(--bdr-a); color:var(--accent); font-family:var(--mono); font-size:16px; font-weight:500; cursor:default; }
@@ -166,7 +176,7 @@ body {
 .gcs-box::before {
   content:'GCS'; position:absolute; right:-8px; top:50%; transform:translateY(-50%) rotate(90deg);
   font-family:var(--serif); font-style:italic; font-size:72px;
-  color:var(--bdr); pointer-events:none; line-height:1;
+  color:rgba(91,163,232,0.10); pointer-events:none; line-height:1;
 }
 
 /* ── AIS GRID ── */
@@ -184,9 +194,9 @@ body {
 .ais-val.v4,.ais-val.v5,.ais-val.v6 { color:var(--red); }
 .ais-card select {
   width:100%; background:var(--glass); border:1px solid var(--bdr); border-radius:6px;
-  padding:10px 28px 10px 10px; font-size:14px; font-family:var(--sans); color:var(--tx);
+  padding:10px 28px 10px 10px; font-size:14px; font-family:var(--sans); color:var(--tx); background:var(--surface);
   appearance:none; -webkit-appearance:none; transition:.2s;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%238a8d94' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%235ba3e8' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
   background-repeat:no-repeat; background-position:right 7px center;
 }
 .ais-card select:focus { outline:none; border-color:var(--bdr-a); }
@@ -200,7 +210,7 @@ body {
 .scr-panel::before {
   content:''; position:absolute; top:-80px; right:-80px;
   width:220px; height:220px; border-radius:50%;
-  background:rgba(200,184,154,0.04); pointer-events:none;
+  background:rgba(91,163,232,0.06); pointer-events:none;
 }
 .scr-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:1.5rem; }
 .scr-item {
@@ -253,8 +263,7 @@ body {
   cursor:pointer; border:1px solid; transition:.18s; letter-spacing:.01em;
 }
 .btn:active { transform:scale(.98); }
-.btn-p { background:var(--accent); color:var(--bg); border-color:var(--accent); }
-[data-theme="light"] .btn-p { color:#fff; }
+.btn-p { background:var(--accent); color:#fff; border-color:var(--accent); }
 .btn-p:hover { filter:brightness(1.1); }
 .btn-g { background:var(--glass); color:var(--tx2); border-color:var(--bdr); }
 .btn-g:hover { border-color:var(--bdr-h); color:var(--tx); }
@@ -330,6 +339,24 @@ tr:hover td { background:var(--glass); color:var(--tx); }
 @keyframes fadeU { from{opacity:0;transform:translateY(10px)}  to{opacity:1;transform:none} }
 @keyframes pls   { 0%,100%{transform:scale(1);opacity:.35} 50%{transform:scale(1.9);opacity:0} }
 .tab-pane { animation:fadeU .3s ease both; }
+
+/* ── NATIVE DROPDOWN FIX — สีถูกต้องทั้ง dark/light ── */
+select { color-scheme: dark; }
+[data-theme="light"] select { color-scheme: light; }
+select option { background-color: var(--surface); color: var(--tx); }
+[data-theme="light"] select option { background-color: #ffffff; color: #0a1a2e; }
+
+/* ── SCROLLBAR น้ำเงิน ── */
+::-webkit-scrollbar-thumb { background: var(--bdr-h); border-radius:3px; }
+
+/* ── INPUT placeholder สีอ่านได้ ── */
+input::placeholder { color: var(--tx3); opacity: 1; }
+
+/* ── FOCUS RING น้ำเงิน ── */
+.fld input:focus,.fld select:focus {
+  outline:none; border-color:var(--accent); background:var(--glass-h);
+  box-shadow:0 0 0 3px var(--accent-d);
+}
 </style>
 </head>
 <body>
@@ -347,7 +374,7 @@ tr:hover td { background:var(--glass); color:var(--tx); }
     </div>
   </div>
   <div class="hdr-r">
-    <span class="th-lbl" id="th-lbl">Dark</span>
+    <span class="th-lbl" id="th-lbl">Light</span>
     <button class="th-btn" onclick="toggleTheme()"></button>
   </div>
 </div>
